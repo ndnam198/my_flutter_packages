@@ -1,0 +1,25 @@
+name: any_state
+description: "A new Flutter package project."
+version: 0.0.1
+repository: https://github.com/ndnam198/my_flutter_packages.git/any_state
+
+environment:
+  sdk: ">=3.4.4 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_gen_runner: ^5.6.0
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  generate: true

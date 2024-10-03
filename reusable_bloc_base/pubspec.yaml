@@ -1,0 +1,29 @@
+name: reusable_bloc_base
+description: "A new Flutter package project."
+version: 0.0.1
+publish_to: none
+repository: https://github.com/ndnam198/my_flutter_packages.git
+
+environment:
+  sdk: ">=3.4.4 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  any_state:
+    git:
+      url: https://github.com/ndnam198/my_flutter_packages.git
+      ref: main
+      path: any_state
+
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

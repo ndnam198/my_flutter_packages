@@ -145,11 +145,11 @@ abstract class AppLocalizations {
   /// **'Resource not found'**
   String get failureResourceNotFound;
 
-  /// No description provided for @success_any.
+  /// No description provided for @successAny.
   ///
   /// In en, this message translates to:
   /// **'Successful operation'**
-  String get success_any;
+  String get successAny;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

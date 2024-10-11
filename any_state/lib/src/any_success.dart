@@ -10,7 +10,7 @@ class AnySuccess extends AnyState {
   @override
   String translate(AppLocalizations l10n) {
     if (code == 'any-success') {
-      return l10n.success_any;
+      return l10n.successAny;
     }
     print('Unknown success code: $code');
     return '';

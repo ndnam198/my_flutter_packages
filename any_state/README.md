@@ -1,6 +1,6 @@
 # Any State
 
-Simple UI state class declaration that supports localizations
+Simple state class declaration that supports localizations
 
 ## Features
 

@@ -9,5 +9,5 @@
     "failureNetwork": "Network failure",
     "failureFetchDataFromInternet": "Failed to fetch data from internet",
     "failureResourceNotFound": "Resource not found",
-    "success_any": "Successful operation"
+    "successAny": "Successful operation"
 }

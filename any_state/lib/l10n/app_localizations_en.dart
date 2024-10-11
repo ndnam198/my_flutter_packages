@@ -32,5 +32,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get failureResourceNotFound => 'Resource not found';
 
   @override
-  String get success_any => 'Successful operation';
+  String get successAny => 'Successful operation';
 }

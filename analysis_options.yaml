@@ -5,6 +5,7 @@ analyzer:
     - test/**.dart
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
+    - any_state/lib/l10n/*.dart
 
   language:
     strict-casts: true

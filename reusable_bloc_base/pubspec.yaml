@@ -1,7 +1,6 @@
 name: reusable_bloc_base
 description: "A new Flutter package project."
 version: 0.0.1
-publish_to: none
 repository: https://github.com/ndnam198/my_flutter_packages.git
 
 environment:
@@ -9,12 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  any_state:
-    git:
-      url: https://github.com/ndnam198/my_flutter_packages.git
-      ref: main
-      path: any_state
-
+  any_state: ^0.0.3
   equatable: ^2.0.5
   flutter:
     sdk: flutter

@@ -1,6 +1,6 @@
 name: any_state
 description: "Simple yet easily extended state class declaration that supports localizations"
-version: 0.0.3
+version: 0.0.4+2
 repository: https://github.com/ndnam198/my_flutter_packages.git/any_state
 
 environment:
@@ -11,12 +11,8 @@ dependencies:
   equatable: ^2.0.5
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.19.0
 
 dev_dependencies:
-  flutter_gen_runner: ^5.6.0
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter

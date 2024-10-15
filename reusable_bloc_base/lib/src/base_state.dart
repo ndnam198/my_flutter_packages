@@ -1,11 +1,18 @@
 import 'package:any_state/any_state.dart';
 import 'package:equatable/equatable.dart';
 
-abstract class BaseState<A> extends Equatable {
+import 'utils/utils.dart';
+
+abstract class BaseState<ActionType, S extends BaseState<ActionType, S>>
+    extends Equatable {
   final AnyFailure failure;
   final AnySuccess success;
+
+  /// default property to control loading state
   final bool isLoading;
-  final Set<A> pendingActions;
+
+  /// contains properties to control loading state and other extra handling actions
+  final Set<ActionType> pendingActions;
 
   const BaseState({
     this.isLoading = false,
@@ -14,7 +21,10 @@ abstract class BaseState<A> extends Equatable {
     this.pendingActions = const {},
   });
 
-  BaseState<A> get resetValue;
+  bool isActionPending(ActionType action) => pendingActions.contains(action);
+  bool isActionNotPending(ActionType action) => !isActionPending(action);
+
+  S get recoveryStateWhenError => this as S;
 
   @override
   List<Object> get props => [
@@ -24,13 +34,13 @@ abstract class BaseState<A> extends Equatable {
         pendingActions,
       ];
 
-  T _afterAction<T extends BaseState<A>>({
+  S _afterAction({
     AnySuccess? success,
     AnyFailure? failure,
-    A? action,
+    ActionType? action,
   }) {
     final updatedActions = action != null
-        ? (Set<A>.from(pendingActions)..remove(action))
+        ? (Set<ActionType>.from(pendingActions)..remove(action))
         : pendingActions;
 
     return copyWith(
@@ -38,51 +48,63 @@ abstract class BaseState<A> extends Equatable {
       isLoading: action != null ? isLoading : false,
       failure: failure,
       pendingActions: updatedActions,
-    ) as T;
+    );
   }
 
-  T beforeAction<T extends BaseState<A>>([A? action]) {
+  S beforeAction([ActionType? action]) {
     return copyWith(
       success: AnySuccess.empty,
       failure: AnyFailure.empty,
       isLoading: action != null ? isLoading : true,
       pendingActions:
           action != null ? {...pendingActions, action} : pendingActions,
-    ) as T;
+    );
   }
 
-  T beforeActionNoLoading<T extends BaseState<A>>() {
+  S beforeActionNoLoading() {
     return copyWith(
       success: AnySuccess.empty,
       failure: AnyFailure.empty,
       isLoading: false,
-    ) as T;
+    );
   }
 
-  BaseState<A> copyWith({
+  S copyWith({
     AnySuccess? success,
     AnyFailure? failure,
     bool? isLoading,
-    Set<A>? pendingActions,
+    Set<ActionType>? pendingActions,
   });
 
-  T failureState<T extends BaseState<A>>({
+  S failureState({
     AnyFailure? failure,
-    A? action,
+    ActionType? action,
   }) {
     return _afterAction(
       failure: failure,
       action: action,
-    ) as T;
+    );
   }
 
-  T successState<T extends BaseState<A>>({
+  S successState({
     AnySuccess? success,
-    A? clearAction,
+    ActionType? clearAction,
   }) {
     return _afterAction(
       success: success,
       action: clearAction,
-    ) as T;
+    );
+  }
+
+  @override
+  String toString() {
+    return '''
+  $debugTag {
+    success: $success,
+    failure: $failure,
+    isLoading: $isLoading,
+    pendingActions: $pendingActions,
+  }
+  ''';
   }
 }

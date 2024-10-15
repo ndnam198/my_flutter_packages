@@ -1,5 +1,4 @@
 import 'package:any_state/any_state.dart';
-import 'package:any_state/l10n/app_localizations.dart';
 
 class NetworkFailure extends AnyFailure {
   const NetworkFailure(super.code);
@@ -11,7 +10,7 @@ class NetworkFailure extends AnyFailure {
   const NetworkFailure.noInternet() : super('no_internet');
 
   @override
-  String translate(AppLocalizations l10n) {
+  String translate([Object? l10n]) {
     switch (code) {
       case 'bad_response':
         return 'Bad response';

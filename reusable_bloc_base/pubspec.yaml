@@ -1,6 +1,6 @@
 name: reusable_bloc_base
-description: "A new Flutter package project."
-version: 0.0.1
+description: "A reusable base for BLoC classes"
+version: 0.0.2
 repository: https://github.com/ndnam198/my_flutter_packages.git
 
 environment:
@@ -8,7 +8,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  any_state: ^0.0.3
+  any_state: ^0.0.4+2
+  bloc_concurrency: ^0.2.5
   equatable: ^2.0.5
   flutter:
     sdk: flutter

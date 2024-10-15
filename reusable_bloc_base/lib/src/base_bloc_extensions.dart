@@ -26,7 +26,7 @@ extension BlocEtensions<T extends dynamic> on Bloc<dynamic, T> {
   }
 }
 
-extension BaseBlocExtension<A, T extends BaseState<A>> on Bloc<dynamic, T> {
+extension BaseBlocExtension<A, T extends BaseState<A, T>> on Bloc<dynamic, T> {
   Future<T> awaitFailure({
     int secondToWait = _defaultWaitSeconds,
     bool shouldThrowOnTimeout = _defaultShouldThrowOnTimeout,

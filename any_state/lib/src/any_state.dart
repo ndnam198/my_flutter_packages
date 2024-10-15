@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 
-import '../../l10n/l10n.dart';
+import '../any_state.dart';
 
 abstract class AnyState extends Equatable {
   const AnyState(this.code);
@@ -10,18 +9,18 @@ abstract class AnyState extends Equatable {
   final String code;
 
   /// a method to translate the state to a human-readable string
-  String translate(AppLocalizations l10n);
+  String translate([covariant Object? l10n]) {
+    throw UnimplementedError();
+  }
 
   bool get isEmpty => code == '';
   bool get isNotEmpty => !isEmpty;
+  bool get isSuccess => this is AnySuccess;
+  bool get isFailure => this is AnyFailure;
 
   @override
   String toString() {
-    if (kDebugMode) {
-      // ignore: no_runtimetype_tostring
-      return '$runtimeType{code: $code}';
-    }
-    return super.toString();
+    return '$runtimeType{code: $code}';
   }
 
   @override

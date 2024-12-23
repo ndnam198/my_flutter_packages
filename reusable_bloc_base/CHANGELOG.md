@@ -8,3 +8,7 @@
 
 - Update dependencies version
 - Add BlocContinuousHistorySnapshot
+
+## 0.1.0 (2024-12-23)
+
+- Update package information in pubspec.yaml

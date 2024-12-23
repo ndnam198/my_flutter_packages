@@ -1,6 +1,6 @@
 name: reusable_bloc_base
-description: "A reusable base for BLoC classes"
-version: 0.0.2
+description: "A very good base for BloC user, ready to use, with many prebuilt useful functions."
+version: 0.1.0
 repository: https://github.com/ndnam198/my_flutter_packages.git
 
 environment:

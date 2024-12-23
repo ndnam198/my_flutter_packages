@@ -1,11 +1,11 @@
 name: detached_scrollbar
-description: A Very Good Project created by Very Good CLI.
-version: 0.1.0+1
-publish_to: none
+description: A Flutter package that provides a DetachedScrollbar widget that can be used to wrap a Scrollable widget to display a scrollbar that is detached from the scrollable widget.
+version: 0.1.0
+repository: https://github.com/ndnam198/my_flutter_packages.git
 
 environment:
-  sdk: ^3.4.0
-  flutter: ^3.22.0
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
@@ -14,5 +14,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mocktail: ^1.0.4
   very_good_analysis: ^6.0.0

@@ -4,9 +4,9 @@ const _handleColor = Color(0xFF747474);
 const _trackColor = Color(0xFFcbcbcb);
 const _trackWidth = 5.0;
 
-// ignore: public_member_api_docs
+/// Track key
 const trackKey = Key('__detached_scrollbar_track__');
-// ignore: public_member_api_docs
+/// Handle key
 const handleKey = Key('__detached_scrollbar_handle__');
 
 /// A scrollbar that is detached from the scrollable content.
@@ -61,11 +61,9 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
 
   @override
   void initState() {
-    widget.scrollController.addListener(_onScrollPositionUpdated);
     super.initState();
-
+    widget.scrollController.addListener(_onScrollPositionUpdated);
     _trackLength = widget.trackLength;
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _handleLength = _calculateHandleLength();
       setState(() {});

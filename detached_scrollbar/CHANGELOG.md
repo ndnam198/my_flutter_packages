@@ -8,3 +8,8 @@
 ## 0.2.0 (2024-12-24)
 
 - BugFix: Small handle drag no longer abruptly changes the handle position
+
+## 0.2.1 (2024-12-24)
+
+- Lint: Fix linting errors
+- Add example to showcase the package

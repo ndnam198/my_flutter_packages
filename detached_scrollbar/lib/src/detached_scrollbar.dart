@@ -4,7 +4,6 @@ const _handleColor = Color(0xFF747474);
 const _trackColor = Color(0xFFcbcbcb);
 const _trackWidth = 5.0;
 
-
 // ignore: public_member_api_docs
 const trackKey = Key('__detached_scrollbar_track__');
 // ignore: public_member_api_docs
@@ -91,14 +90,20 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
 
   void _onHandleDragUpdate(DragUpdateDetails details) {
     _isHandleDragging = true;
-    final dragPosition = widget.isHorizontal
-        ? details.globalPosition.dx.clamp(0, _trackLength)
-        : details.globalPosition.dy.clamp(0, _trackLength);
-    final scrollPercentage = dragPosition / _trackLength;
+
+    // Calculate delta movement instead of absolute position
+    final delta = widget.isHorizontal ? details.delta.dx : details.delta.dy;
+    final maxExtent = widget.scrollController.position.maxScrollExtent;
+
+    // Convert track movement to scroll movement
+    final scrollDelta = (delta / _trackLength) * maxExtent;
+
+    // Update scroll position based on delta
+    final newOffset = (widget.scrollController.offset + scrollDelta).clamp(0.0, maxExtent);
 
     setState(() {
-      _scrollPercentSetter = scrollPercentage;
-      widget.scrollController.jumpTo(scrollPercentage * widget.scrollController.position.maxScrollExtent);
+      _scrollPercentSetter = newOffset / maxExtent;
+      widget.scrollController.jumpTo(newOffset);
     });
   }
 

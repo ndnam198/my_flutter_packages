@@ -1,6 +1,6 @@
 name: detached_scrollbar
 description: A Flutter package that provides a DetachedScrollbar widget that can be used to wrap a Scrollable widget to display a scrollbar that is detached from the scrollable widget.
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/ndnam198/my_flutter_packages.git
 
 environment:

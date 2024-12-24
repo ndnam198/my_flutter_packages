@@ -4,3 +4,7 @@
 
 - Introduce widget: DetachedScrollbar
 - Create Unit tests
+
+## 0.2.0 (2024-12-24)
+
+- BugFix: Small handle drag no longer abruptly changes the handle position

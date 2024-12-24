@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('DetachedScrollBar initializes correctly', (WidgetTester tester) async {
+  testWidgets('DetachedScrollBar initializes correctly',
+      (WidgetTester tester) async {
     final scrollController = ScrollController();
 
     await tester.pumpWidget(
@@ -22,9 +23,12 @@ void main() {
     expect(find.byType(DetachedScrollBar), findsOneWidget);
   });
 
-  testWidgets('DetachedScrollBar updates scroll position on handle dragged (vertically)', (WidgetTester tester) async {
+  testWidgets(
+      'DetachedScrollBar updates scroll position on handle dragged (vertically)',
+      (WidgetTester tester) async {
     final scrollController = ScrollController();
-    final scrollableContent = List.generate(100, (index) => ListTile(title: Text('Item $index')));
+    final scrollableContent =
+        List.generate(100, (index) => ListTile(title: Text('Item $index')));
     final scrollableWidget = ListView.builder(
       controller: scrollController,
       itemCount: scrollableContent.length,
@@ -56,7 +60,8 @@ void main() {
     expect(scrollController.offset, greaterThan(0));
   });
 
-  testWidgets('DetachedScrollBar updates scroll position on handle dragged (horizontal case)',
+  testWidgets(
+      'DetachedScrollBar updates scroll position on handle dragged (horizontal case)',
       (WidgetTester tester) async {
     final scrollController = ScrollController();
     final scrollableContent = List.generate(
@@ -98,9 +103,11 @@ void main() {
     expect(scrollController.offset, greaterThan(0));
   });
 
-  testWidgets('DetachedScrollBar updates handle position on track tapped', (WidgetTester tester) async {
+  testWidgets('DetachedScrollBar updates handle position on track tapped',
+      (WidgetTester tester) async {
     final scrollController = ScrollController();
-    final scrollableContent = List.generate(100, (index) => ListTile(title: Text('Item $index')));
+    final scrollableContent =
+        List.generate(100, (index) => ListTile(title: Text('Item $index')));
     final scrollableWidget = ListView.builder(
       controller: scrollController,
       itemCount: scrollableContent.length,
@@ -130,9 +137,11 @@ void main() {
     expect(scrollController.offset, greaterThan(0));
   });
 
-  testWidgets('DetachedScrollBar handle size adjusts with content size', (WidgetTester tester) async {
+  testWidgets('DetachedScrollBar handle size adjusts with content size',
+      (WidgetTester tester) async {
     final scrollController = ScrollController();
-    final scrollableContent = List.generate(100, (index) => ListTile(title: Text('Item $index')));
+    final scrollableContent =
+        List.generate(100, (index) => ListTile(title: Text('Item $index')));
     final scrollableWidget = ListView.builder(
       controller: scrollController,
       itemCount: scrollableContent.length,
@@ -166,9 +175,11 @@ void main() {
     expect(updatedHandleSize.height, lessThan(initialHandleSize.height));
   });
 
-  testWidgets('DetachedScrollBar handle size adjusts with viewport size', (WidgetTester tester) async {
+  testWidgets('DetachedScrollBar handle size adjusts with viewport size',
+      (WidgetTester tester) async {
     final scrollController = ScrollController();
-    final scrollableContent = List.generate(100, (index) => ListTile(title: Text('Item $index')));
+    final scrollableContent =
+        List.generate(100, (index) => ListTile(title: Text('Item $index')));
     final scrollableWidget = ListView.builder(
       controller: scrollController,
       itemCount: scrollableContent.length,
@@ -203,10 +214,12 @@ void main() {
     expect(updatedHandleSize.height, lessThan(initialHandleSize.height));
   });
 
-  testWidgets('DetachedScrollBar does not render when handle size is equal or greater than track length',
+  testWidgets(
+      'DetachedScrollBar does not render when handle size is equal or greater than track length',
       (WidgetTester tester) async {
     final scrollController = ScrollController();
-    final scrollableContent = List.generate(5, (index) => ListTile(title: Text('Item $index')));
+    final scrollableContent =
+        List.generate(5, (index) => ListTile(title: Text('Item $index')));
     final scrollableWidget = ListView.builder(
       controller: scrollController,
       itemCount: scrollableContent.length,
@@ -235,7 +248,8 @@ void main() {
     expect(find.byKey(handleKey), findsNothing);
   });
 
-  testWidgets('DetachedScrollBar calls didUpdateWidget when properties change', (WidgetTester tester) async {
+  testWidgets('DetachedScrollBar calls didUpdateWidget when properties change',
+      (WidgetTester tester) async {
     final scrollController = ScrollController();
     final scrollableContent = List.generate(
       100,

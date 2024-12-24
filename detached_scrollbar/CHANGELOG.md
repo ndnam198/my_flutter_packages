@@ -13,3 +13,7 @@
 
 - Lint: Fix linting errors
 - Add example to showcase the package
+
+## 0.2.1+1 (2024-12-24)
+
+- Code formatting

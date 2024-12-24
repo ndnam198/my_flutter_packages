@@ -6,6 +6,7 @@ const _trackWidth = 5.0;
 
 /// Track key
 const trackKey = Key('__detached_scrollbar_track__');
+
 /// Handle key
 const handleKey = Key('__detached_scrollbar_handle__');
 
@@ -74,15 +75,19 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
     //vẻify widget.scrollController.position is gettable first
     if (!widget.scrollController.hasClients) return 50;
 
-    final viewportDimension = widget.scrollController.position.viewportDimension;
+    final viewportDimension =
+        widget.scrollController.position.viewportDimension;
     final maxScrollExtent = widget.scrollController.position.maxScrollExtent;
-    return (_trackLength * (viewportDimension / (maxScrollExtent + viewportDimension))).clamp(20.0, _trackLength);
+    return (_trackLength *
+            (viewportDimension / (maxScrollExtent + viewportDimension)))
+        .clamp(20.0, _trackLength);
   }
 
   void _onScrollPositionUpdated() {
     setState(() {
-      _scrollPercentSetter =
-          (widget.scrollController.offset / widget.scrollController.position.maxScrollExtent).clamp(0.0, 1.0);
+      _scrollPercentSetter = (widget.scrollController.offset /
+              widget.scrollController.position.maxScrollExtent)
+          .clamp(0.0, 1.0);
     });
   }
 
@@ -97,7 +102,8 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
     final scrollDelta = (delta / _trackLength) * maxExtent;
 
     // Update scroll position based on delta
-    final newOffset = (widget.scrollController.offset + scrollDelta).clamp(0.0, maxExtent);
+    final newOffset =
+        (widget.scrollController.offset + scrollDelta).clamp(0.0, maxExtent);
 
     setState(() {
       _scrollPercentSetter = newOffset / maxExtent;
@@ -117,7 +123,8 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
 
     setState(() {
       _scrollPercentSetter = scrollPercentage;
-      widget.scrollController.jumpTo(scrollPercentage * widget.scrollController.position.maxScrollExtent);
+      widget.scrollController.jumpTo(
+          scrollPercentage * widget.scrollController.position.maxScrollExtent);
     });
   }
 
@@ -140,10 +147,12 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
   @override
   Widget build(BuildContext context) {
     final handleMaxOffset = _trackLength - _handleLength;
-    final offset = (_scrollPercent * handleMaxOffset).clamp(0, handleMaxOffset).toDouble();
+    final offset =
+        (_scrollPercent * handleMaxOffset).clamp(0, handleMaxOffset).toDouble();
 
     if (_handleLength >= _trackLength) {
-      debugPrint('handle length is greater than track length $_handleLength >= $_trackLength');
+      debugPrint(
+          'handle length is greater than track length $_handleLength >= $_trackLength');
       return const SizedBox.shrink();
     }
 
@@ -168,8 +177,10 @@ class _DetachedScrollBarState extends State<DetachedScrollBar> {
               child: GestureDetector(
                 key: handleKey,
                 behavior: HitTestBehavior.translucent,
-                onHorizontalDragUpdate: widget.isHorizontal ? _onHandleDragUpdate : null,
-                onVerticalDragUpdate: widget.isHorizontal ? null : _onHandleDragUpdate,
+                onHorizontalDragUpdate:
+                    widget.isHorizontal ? _onHandleDragUpdate : null,
+                onVerticalDragUpdate:
+                    widget.isHorizontal ? null : _onHandleDragUpdate,
                 onTapDown: (_) {
                   _isHandleDragging = true;
                 },
